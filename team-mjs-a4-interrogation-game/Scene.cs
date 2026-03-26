@@ -10,15 +10,17 @@ namespace MohawkGame2D
     {
         Player player = new Player();
 
-        public float countdown = 30;
+        public float countdown = 5;
         public float transitionTimer;
 
         // BOOL CHECKS TO CHANGE SCENES //
-        public bool showCrimeScene = false;
+        public bool showCrimeScene = true;
         public bool showLoadingScene = false;
-        public bool showInterrogation = true;
+        public bool showInterrogation = false;
         public bool showInterrogationYes = false;
         public bool showInterrogationNo = false;
+        public bool showIntroScene = false;
+        public bool showquestion1 = false;
 
         // GAMEPLAY CRIME SCENE //
         public void Crime()
@@ -52,14 +54,14 @@ namespace MohawkGame2D
 
             float continueTimer;
             continueTimer = Time.SecondsElapsed;
-            if (continueTimer >= 35)
+            if (continueTimer >= 5)
             {
                 Text.Draw("Click to continue.", 480, 400);
             }
             if (Input.IsMouseButtonPressed(0))
             {
                 showLoadingScene = false;
-                showInterrogation = true;
+                showIntroScene = true;
             }
         }
     }

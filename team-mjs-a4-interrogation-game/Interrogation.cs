@@ -1,70 +1,59 @@
-﻿// Include the namespaces (code libraries) you need below.
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Numerics;
+using System.Text;
 
-
-// The namespace your code is in.
 namespace MohawkGame2D
 {
-    public class Game
+    public class Interrogation
     {
-        // Place your variables here:
-        Player player = new Player();
-        Scene scenes = new Scene();
-        Interrogation questions;
-
+        Scene scenes;
         Vector2 yesCircle = new Vector2(200, 200);
         float radius = 50;
         Vector2 noCircle = new Vector2(1080, 200);
 
-        public void Setup()
-        {
-            Window.SetSize(1250, 750);
-            Window.SetTitle("Interrogation");
-            Window.TargetFPS = 60;
 
-            questions = new Interrogation(scenes);
+        public Interrogation(Scene scenes)
+        {
+            this.scenes = scenes;
         }
 
-        public void Update()
+        // INTRO SCENE //
+        public void Intro()
         {
-            Window.ClearBackground(Color.Black);
-            if (scenes.showCrimeScene == true)
+
+            Draw.FillColor = Color.DarkGray;
+            Draw.Rectangle(200, 500, 880, 200);
+
+
+            Text.Color = Color.White;
+            Text.Draw("Good afternoon, Jordan..\n" +
+                "I'm Monty, a detective with Hamilton Police.\n" +
+                "I've brought you in for questioning about a crime \n" +
+                "that was commited two weeks ago \n" +
+                "on the night of March 12, 2026", 220, 520);
+            Draw.Circle(yesCircle, radius);
+            Text.Draw("Yes", 175, 185);
+            Draw.Circle(noCircle, radius);
+            Text.Draw("No", 1065, 185);
+            if (Input.IsMouseButtonPressed(0))
             {
-                scenes.Crime();
-            }
-            else if (scenes.showLoadingScene == true)
-            {
-                scenes.Loading();
-            }
-            else if (scenes.showInterrogation == true)
-            {
-                Interrogation();
-            }
-            else if (scenes.showInterrogationYes == true)
-            {
-                InterrogationYes();
-            }
-            else if (scenes.showInterrogationNo == true)
-            {
-                InterrogationNo();
-            }
-            else if (scenes.showIntroScene == true)
-            {
-                questions.Intro();
-            }
-            else if (scenes.showquestion1 == true)
-            {
-                questions.Question1();
+                scenes.showIntroScene = false;
+                scenes.showquestion1  = true;
             }
         }
-
-
-
-        public void Interrogation()
+        
+        public void Question1()
+       
+        
+             //text box      
         {
             Draw.FillColor = Color.DarkGray;
             Draw.Rectangle(200, 500, 880, 200);
+
+
+            //question
+
             Text.Color = Color.White;
             Text.Draw("Did you do the crime?", 220, 520);
             Draw.Circle(yesCircle, radius);
@@ -120,6 +109,6 @@ namespace MohawkGame2D
             Draw.Circle(noCircle, radius);
             Text.Draw("No", 1065, 185);
         }
-    }
 
+    }
 }

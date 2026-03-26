@@ -14,9 +14,9 @@ namespace MohawkGame2D
         public float transitionTimer;
 
         // BOOL CHECKS TO CHANGE SCENES //
-        public bool showCrimeScene = true;
+        public bool showCrimeScene = false;
         public bool showLoadingScene = false;
-        public bool showInterrogation = false;
+        public bool showInterrogation = true;
         public bool showInterrogationYes = false;
         public bool showInterrogationNo = false;
 
@@ -48,13 +48,13 @@ namespace MohawkGame2D
         {
             Window.ClearBackground(Color.Black);
             Text.Color = Color.White;
-            Text.Draw("Two weeks later...", 250, 300);
+            Text.Draw("Two weeks later...", 480, 360);
 
             float continueTimer;
             continueTimer = Time.SecondsElapsed;
-            if (continueTimer >= 40)
+            if (continueTimer >= 35)
             {
-                Text.Draw("Click to continue.", 250, 400);
+                Text.Draw("Click to continue.", 480, 400);
             }
             if (Input.IsMouseButtonPressed(0))
             {

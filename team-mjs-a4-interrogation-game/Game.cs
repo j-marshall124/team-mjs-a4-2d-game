@@ -11,9 +11,9 @@ namespace MohawkGame2D
         Player player = new Player();
         Scene scenes = new Scene();             
 
-        Vector2 yesCircle = new Vector2(100, 200);
+        Vector2 yesCircle = new Vector2(200, 200);
         float radius = 50;
-        Vector2 noCircle = new Vector2(700, 200);
+        Vector2 noCircle = new Vector2(1080, 200);
 
         public void Setup()
         {
@@ -50,13 +50,13 @@ namespace MohawkGame2D
         public void Interrogation()
         {
             Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(0, 600, 800, 200);
+            Draw.Rectangle(200, 500, 880, 200);
             Text.Color = Color.White;
-            Text.Draw("Did you do the crime?", 20, 620);
+            Text.Draw("Did you do the crime?", 220, 520);
             Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 75, 185);
+            Text.Draw("Yes", 175, 185);
             Draw.Circle(noCircle, radius);
-            Text.Draw("No", 685, 185);
+            Text.Draw("No", 1065, 185);
 
             if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
                 && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
@@ -85,26 +85,26 @@ namespace MohawkGame2D
         {
             Window.ClearBackground(Color.Black);
             Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(0, 600, 800, 200);
+            Draw.Rectangle(200, 500, 880, 200);
             Text.Color = Color.White;
-            Text.Draw("I can't believe this. GAME OVER.", 20, 620);
+            Text.Draw("I can't believe this. GAME OVER.", 220, 520);
             Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 75, 185);
+            Text.Draw("Yes", 175, 185);
             Draw.Circle(noCircle, radius);
-            Text.Draw("No", 685, 185);
+            Text.Draw("No", 1065, 185);
         }
 
         public void InterrogationNo()
         {
             Window.ClearBackground(Color.Black);
             Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(0, 600, 800, 200);
+            Draw.Rectangle(200, 500, 880, 200);
             Text.Color = Color.White;
-            Text.Draw("I knew it wasn't you. YOU WIN.", 20, 620);
+            Text.Draw("I knew it wasn't you. YOU WIN.", 220, 520);
             Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 75, 185);
+            Text.Draw("Yes", 175, 185);
             Draw.Circle(noCircle, radius);
-            Text.Draw("No", 685, 185);
+            Text.Draw("No", 1065, 185);
         }
     }
 

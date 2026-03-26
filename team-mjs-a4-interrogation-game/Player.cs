@@ -35,7 +35,7 @@ namespace MohawkGame2D
                 playerPosition.Y += 5;
             }
 
-            // Collision
+            // Window Collision
             if (playerPosition.Y - playerRadius < 0)
             {
                 playerPosition.Y = 25;

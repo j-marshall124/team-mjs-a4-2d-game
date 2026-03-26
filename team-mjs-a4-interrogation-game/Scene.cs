@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
-using static System.TimeZoneInfo;
 
 namespace MohawkGame2D
 {
@@ -16,11 +15,10 @@ namespace MohawkGame2D
         // BOOL CHECKS TO CHANGE SCENES //
         public bool showCrimeScene = true;
         public bool showLoadingScene = false;
-        public bool showInterrogation = false;
-        public bool showInterrogationYes = false;
-        public bool showInterrogationNo = false;
         public bool showIntroScene = false;
-        public bool showquestion1 = false;
+        public bool showQuestion1 = false;
+        public bool showInterrogationYes = false;
+        public bool showInterrogationNo = false;        
 
         // GAMEPLAY CRIME SCENE //
         public void Crime()

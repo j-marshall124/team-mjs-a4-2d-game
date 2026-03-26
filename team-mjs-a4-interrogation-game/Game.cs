@@ -36,90 +36,25 @@ namespace MohawkGame2D
             else if (scenes.showLoadingScene == true)
             {
                 scenes.Loading();
-            }
-            else if (scenes.showInterrogation == true)
-            {
-                Interrogation();
-            }
-            else if (scenes.showInterrogationYes == true)
-            {
-                InterrogationYes();
-            }
-            else if (scenes.showInterrogationNo == true)
-            {
-                InterrogationNo();
-            }
+            }            
             else if (scenes.showIntroScene == true)
             {
                 questions.Intro();
             }
-            else if (scenes.showquestion1 == true)
+            else if (scenes.showQuestion1 == true)
             {
                 questions.Question1();
             }
-        }
-
-
-
-        public void Interrogation()
-        {
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
-            Text.Color = Color.White;
-            Text.Draw("Did you do the crime?", 220, 520);
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
-
-            if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
-                && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
+            else if (scenes.showInterrogationYes == true)
             {
-                bool isInsideOption1 = true;
-                if (isInsideOption1 && Input.IsMouseButtonPressed(0))
-                {
-                    scenes.showInterrogation = false;
-                    scenes.showInterrogationYes = true;
-                }
+                questions.InterrogationYes();
             }
-
-            if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
-                && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
+            else if (scenes.showInterrogationNo == true)
             {
-                bool isInsideOption2 = true;
-                if (isInsideOption2 && Input.IsMouseButtonPressed(0))
-                {
-                    scenes.showInterrogation = false;
-                    scenes.showInterrogationNo = true;
-                }
+                questions.InterrogationNo();
             }
         }
-
-        public void InterrogationYes()
-        {
-            Window.ClearBackground(Color.Black);
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
-            Text.Color = Color.White;
-            Text.Draw("I can't believe this. GAME OVER.", 220, 520);
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
-        }
-
-        public void InterrogationNo()
-        {
-            Window.ClearBackground(Color.Black);
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
-            Text.Color = Color.White;
-            Text.Draw("I knew it wasn't you. YOU WIN.", 220, 520);
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
-        }
+     
     }
 
 }

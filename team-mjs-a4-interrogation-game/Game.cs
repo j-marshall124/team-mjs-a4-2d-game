@@ -1,5 +1,4 @@
 ﻿// Include the namespaces (code libraries) you need below.
-using MohawkGame2D;
 using System;
 using System.Numerics;
 
@@ -9,66 +8,104 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-        Vector2 playerPosition = new Vector2(400, 200);
-        float playerRadius = 25;
+        Player player = new Player();
+        Scene scenes = new Scene();             
+
+        Vector2 yesCircle = new Vector2(200, 200);
+        float radius = 50;
+        Vector2 noCircle = new Vector2(1080, 200);
 
         public void Setup()
         {
-            Window.SetSize(800, 800);
-            Window.SetTitle("Interrogation Game");
+            Window.SetSize(1280, 720);
+            Window.SetTitle("Interrogation");
             Window.TargetFPS = 60;
         }
 
         public void Update()
         {
-            Window.ClearBackground(Color.Green);
-            Player();
-            Text.Draw("Jordan and Monty are goated", 10, 10);
+            Window.ClearBackground(Color.Black);
+            if (scenes.showCrimeScene == true)
+            {
+                scenes.Crime();
+            }
+            else if (scenes.showLoadingScene == true)
+            {
+                scenes.Loading();
+            }
+            else if (scenes.showInterrogation == true)
+            {
+                Interrogation();
+            }
+            else if (scenes.showInterrogationYes == true)
+            {
+                InterrogationYes();
+            }
+            else if (scenes.showInterrogationNo == true)
+            {
+                InterrogationNo();
+            }
+        }     
 
+        public void Interrogation()
+        {
+            Draw.FillColor = Color.DarkGray;
+            Draw.Rectangle(200, 500, 880, 200);
+            Text.Color = Color.White;
+            Text.Draw("Did you do the crime?", 220, 520);
+            Draw.Circle(yesCircle, radius);
+            Text.Draw("Yes", 175, 185);
+            Draw.Circle(noCircle, radius);
+            Text.Draw("No", 1065, 185);
+
+            if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
+                && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
+            {
+                bool isInsideOption1 = true;
+                if (isInsideOption1 && Input.IsMouseButtonPressed(0))
+                {
+                    scenes.showInterrogation = false;
+                    scenes.showInterrogationYes = true;
+                }
+            }
+
+            if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
+                && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
+            {
+                bool isInsideOption2 = true;
+                if (isInsideOption2 && Input.IsMouseButtonPressed(0))
+                {
+                    scenes.showInterrogation = false;
+                    scenes.showInterrogationNo = true;
+                }
+            }
         }
 
-        public void Player()
+        public void InterrogationYes()
         {
-            // Setup
-            Draw.FillColor = Color.LightGray;
-            Draw.Circle(playerPosition, playerRadius);
+            Window.ClearBackground(Color.Black);
+            Draw.FillColor = Color.DarkGray;
+            Draw.Rectangle(200, 500, 880, 200);
+            Text.Color = Color.White;
+            Text.Draw("I can't believe this. GAME OVER.", 220, 520);
+            Draw.Circle(yesCircle, radius);
+            Text.Draw("Yes", 175, 185);
+            Draw.Circle(noCircle, radius);
+            Text.Draw("No", 1065, 185);
+        }
 
-            // Movement
-            if (Input.IsKeyboardKeyDown(KeyboardInput.A))
-            {
-                playerPosition.X -= 5;
-            }
-            if (Input.IsKeyboardKeyDown(KeyboardInput.D))
-            {
-                playerPosition.X += 5;
-            }
-            if (Input.IsKeyboardKeyDown(KeyboardInput.W))
-            {
-                playerPosition.Y -= 5;
-            }
-            if (Input.IsKeyboardKeyDown(KeyboardInput.S))
-            {
-                playerPosition.Y += 5;
-            }
-
-            // Collision
-            if (playerPosition.Y - playerRadius < 0)
-            {
-                playerPosition.Y = 25;
-            }
-            if (playerPosition.Y + playerRadius > 800)
-            {
-                playerPosition.Y = 775;
-            }
-            if (playerPosition.X - playerRadius < 0)
-            {
-                playerPosition.X = 25;
-            }
-            if (playerPosition.X + playerRadius > 800)
-            {
-                playerPosition.X = 775;
-            }
+        public void InterrogationNo()
+        {
+            Window.ClearBackground(Color.Black);
+            Draw.FillColor = Color.DarkGray;
+            Draw.Rectangle(200, 500, 880, 200);
+            Text.Color = Color.White;
+            Text.Draw("I knew it wasn't you. YOU WIN.", 220, 520);
+            Draw.Circle(yesCircle, radius);
+            Text.Draw("Yes", 175, 185);
+            Draw.Circle(noCircle, radius);
+            Text.Draw("No", 1065, 185);
         }
     }
+
 }
-             

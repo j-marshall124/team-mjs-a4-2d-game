@@ -40,17 +40,17 @@ namespace MohawkGame2D
             {
                 playerPosition.Y = 25;
             }
-            if (playerPosition.Y + playerRadius > 720)
+            if (playerPosition.Y + playerRadius > 750)
             {
-                playerPosition.Y = 695;
+                playerPosition.Y = 725;
             }
             if (playerPosition.X - playerRadius < 0)
             {
                 playerPosition.X = 25;
             }
-            if (playerPosition.X + playerRadius > 1280)
+            if (playerPosition.X + playerRadius > 1250)
             {
-                playerPosition.X = 1255;
+                playerPosition.X = 1225;
             }
         }
     }

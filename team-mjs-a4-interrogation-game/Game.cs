@@ -1,4 +1,5 @@
 ﻿// Include the namespaces (code libraries) you need below.
+using MohawkGame2D;
 using System;
 using System.Numerics;
 
@@ -20,8 +21,9 @@ namespace MohawkGame2D
 
         public void Update()
         {
-            Window.ClearBackground(Color.Black);
+            Window.ClearBackground(Color.Green);
             Player();
+            Text.Draw("Jordan and Monty are goated", 10, 10);
 
         }
 
@@ -69,3 +71,4 @@ namespace MohawkGame2D
         }
     }
 }
+             

@@ -3,6 +3,7 @@ using MohawkGame2D;
 using System;
 using System.Numerics;
 
+
 // The namespace your code is in.
 namespace MohawkGame2D
 {
@@ -11,7 +12,7 @@ namespace MohawkGame2D
         // Place your variables here:
         Vector2 playerPosition = new Vector2(400, 200);
         float playerRadius = 25;
-
+        Question question1;
         public void Setup()
         {
             Window.SetSize(800, 800);
@@ -23,8 +24,8 @@ namespace MohawkGame2D
         {
             Window.ClearBackground(Color.Green);
             Player();
-            Text.Draw("Jordan and Monty are goated", 10, 10);
-
+            
+           
         }
 
         public void Player()
@@ -32,7 +33,7 @@ namespace MohawkGame2D
             // Setup
             Draw.FillColor = Color.LightGray;
             Draw.Circle(playerPosition, playerRadius);
-
+            
             // Movement
             if (Input.IsKeyboardKeyDown(KeyboardInput.A))
             {

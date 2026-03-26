@@ -23,7 +23,7 @@ namespace MohawkGame2D
         {
             Window.ClearBackground(Color.Green);
             Player();
-            Text.Draw("jordan and monty are goated", 10, 10);
+            Text.Draw("Jordan and Monty are goated", 10, 10);
 
         }
 

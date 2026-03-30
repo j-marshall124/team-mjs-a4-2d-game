@@ -2,6 +2,7 @@
 using System;
 using System.Numerics;
 
+
 // The namespace your code is in.
 namespace MohawkGame2D
 {
@@ -9,7 +10,9 @@ namespace MohawkGame2D
     {
         // Place your variables here:
         Player player = new Player();
-        Scene scenes = new Scene();             
+        Scene scenes = new Scene();
+        Obstacle obstacles = new Obstacle();
+        Interrogation questions;
 
         Vector2 yesCircle = new Vector2(200, 200);
         float radius = 50;
@@ -17,9 +20,11 @@ namespace MohawkGame2D
 
         public void Setup()
         {
-            Window.SetSize(1280, 720);
+            Window.SetSize(1250, 750);
             Window.SetTitle("Interrogation");
             Window.TargetFPS = 60;
+
+            questions = new Interrogation(scenes);
         }
 
         public void Update()
@@ -27,85 +32,36 @@ namespace MohawkGame2D
             Window.ClearBackground(Color.Black);
             if (scenes.showCrimeScene == true)
             {
+                Gameplay();
                 scenes.Crime();
             }
             else if (scenes.showLoadingScene == true)
             {
                 scenes.Loading();
             }
-            else if (scenes.showInterrogation == true)
+            else if (scenes.showIntroScene == true)
             {
-                Interrogation();
+                questions.Intro();
+            }
+            else if (scenes.showQuestion1 == true)
+            {
+                questions.Question1();
             }
             else if (scenes.showInterrogationYes == true)
             {
-                InterrogationYes();
+                questions.InterrogationYes();
             }
             else if (scenes.showInterrogationNo == true)
             {
-                InterrogationNo();
-            }
-        }     
-
-        public void Interrogation()
-        {
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
-            Text.Color = Color.White;
-            Text.Draw("Did you do the crime?", 220, 520);
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
-
-            if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
-                && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
-            {
-                bool isInsideOption1 = true;
-                if (isInsideOption1 && Input.IsMouseButtonPressed(0))
-                {
-                    scenes.showInterrogation = false;
-                    scenes.showInterrogationYes = true;
-                }
-            }
-
-            if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
-                && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
-            {
-                bool isInsideOption2 = true;
-                if (isInsideOption2 && Input.IsMouseButtonPressed(0))
-                {
-                    scenes.showInterrogation = false;
-                    scenes.showInterrogationNo = true;
-                }
+                questions.InterrogationNo();
             }
         }
 
-        public void InterrogationYes()
+        public void Gameplay()
         {
-            Window.ClearBackground(Color.Black);
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
-            Text.Color = Color.White;
-            Text.Draw("I can't believe this. GAME OVER.", 220, 520);
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
+            
         }
-
-        public void InterrogationNo()
-        {
-            Window.ClearBackground(Color.Black);
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
-            Text.Color = Color.White;
-            Text.Draw("I knew it wasn't you. YOU WIN.", 220, 520);
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
-        }
+     
     }
 
 }

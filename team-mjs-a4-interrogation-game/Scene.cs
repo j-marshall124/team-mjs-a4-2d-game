@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
-using static System.TimeZoneInfo;
 
 namespace MohawkGame2D
 {
     public class Scene
     {
         Player player = new Player();
+        Obstacle square = new Obstacle();
 
         public float countdown = 30;
         public float transitionTimer;
 
         // BOOL CHECKS TO CHANGE SCENES //
-        public bool showCrimeScene = false;
+        public bool showCrimeScene = true;
         public bool showLoadingScene = false;
-        public bool showInterrogation = true;
+        public bool showIntroScene = false;
+        public bool showQuestion1 = false;
         public bool showInterrogationYes = false;
-        public bool showInterrogationNo = false;
+        public bool showInterrogationNo = false;        
 
         // GAMEPLAY CRIME SCENE //
         public void Crime()
         {
+            square.Collectable();
             player.PlayerMove();
             countdown -= Time.DeltaTime;
             if (countdown > 0)
@@ -32,7 +34,7 @@ namespace MohawkGame2D
             }
             else if (countdown <= 0)
             {
-                transitionTimer = countdown + 3;
+                transitionTimer = countdown + 1;
                 transitionTimer -= Time.DeltaTime;
                 if (transitionTimer <= 0)
                 {
@@ -59,7 +61,7 @@ namespace MohawkGame2D
             if (Input.IsMouseButtonPressed(0))
             {
                 showLoadingScene = false;
-                showInterrogation = true;
+                showIntroScene = true;
             }
         }
     }

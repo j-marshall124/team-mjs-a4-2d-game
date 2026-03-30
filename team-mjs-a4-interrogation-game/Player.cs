@@ -7,13 +7,14 @@ namespace MohawkGame2D
 {
     public class Player
     {
-        public Vector2 playerPosition = new Vector2(400, 200);
+        public Vector2 playerPosition = new Vector2(625, 700);
         public float playerRadius = 25;
         public float detectRadius = 50;
 
         public void PlayerMove()
         {
             // Setup
+            Draw.LineSize = 0;
             Draw.FillColor = Color.LightGray;
             Draw.Circle(playerPosition, playerRadius);
 
@@ -35,22 +36,22 @@ namespace MohawkGame2D
                 playerPosition.Y += 5;
             }
 
-            // Collision
+            // Window Collision
             if (playerPosition.Y - playerRadius < 0)
             {
                 playerPosition.Y = 25;
             }
-            if (playerPosition.Y + playerRadius > 720)
+            if (playerPosition.Y + playerRadius > 750)
             {
-                playerPosition.Y = 695;
+                playerPosition.Y = 725;
             }
             if (playerPosition.X - playerRadius < 0)
             {
                 playerPosition.X = 25;
             }
-            if (playerPosition.X + playerRadius > 1280)
+            if (playerPosition.X + playerRadius > 1250)
             {
-                playerPosition.X = 1255;
+                playerPosition.X = 1225;
             }
         }
     }

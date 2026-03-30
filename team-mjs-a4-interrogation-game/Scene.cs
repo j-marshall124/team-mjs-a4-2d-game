@@ -8,8 +8,9 @@ namespace MohawkGame2D
     public class Scene
     {
         Player player = new Player();
+        Obstacle square = new Obstacle();
 
-        public float countdown = 5;
+        public float countdown = 30;
         public float transitionTimer;
 
         // BOOL CHECKS TO CHANGE SCENES //
@@ -23,6 +24,7 @@ namespace MohawkGame2D
         // GAMEPLAY CRIME SCENE //
         public void Crime()
         {
+            square.Collectable();
             player.PlayerMove();
             countdown -= Time.DeltaTime;
             if (countdown > 0)
@@ -32,7 +34,7 @@ namespace MohawkGame2D
             }
             else if (countdown <= 0)
             {
-                transitionTimer = countdown + 3;
+                transitionTimer = countdown + 1;
                 transitionTimer -= Time.DeltaTime;
                 if (transitionTimer <= 0)
                 {
@@ -52,7 +54,7 @@ namespace MohawkGame2D
 
             float continueTimer;
             continueTimer = Time.SecondsElapsed;
-            if (continueTimer >= 5)
+            if (continueTimer >= 35)
             {
                 Text.Draw("Click to continue.", 480, 400);
             }

@@ -7,13 +7,14 @@ namespace MohawkGame2D
 {
     public class Player
     {
-        public Vector2 playerPosition = new Vector2(400, 200);
+        public Vector2 playerPosition = new Vector2(625, 700);
         public float playerRadius = 25;
         public float detectRadius = 50;
 
         public void PlayerMove()
         {
             // Setup
+            Draw.LineSize = 0;
             Draw.FillColor = Color.LightGray;
             Draw.Circle(playerPosition, playerRadius);
 

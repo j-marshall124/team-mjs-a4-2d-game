@@ -11,6 +11,7 @@ namespace MohawkGame2D
         // Place your variables here:
         Player player = new Player();
         Scene scenes = new Scene();
+        Obstacle obstacles = new Obstacle();
         Interrogation questions;
 
         Vector2 yesCircle = new Vector2(200, 200);
@@ -31,12 +32,13 @@ namespace MohawkGame2D
             Window.ClearBackground(Color.Black);
             if (scenes.showCrimeScene == true)
             {
+                Gameplay();
                 scenes.Crime();
             }
             else if (scenes.showLoadingScene == true)
             {
                 scenes.Loading();
-            }            
+            }
             else if (scenes.showIntroScene == true)
             {
                 questions.Intro();
@@ -53,6 +55,11 @@ namespace MohawkGame2D
             {
                 questions.InterrogationNo();
             }
+        }
+
+        public void Gameplay()
+        {
+            
         }
      
     }

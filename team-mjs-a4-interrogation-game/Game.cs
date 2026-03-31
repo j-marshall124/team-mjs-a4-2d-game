@@ -9,57 +9,39 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-        Player player = new Player();
-        Scene scenes = new Scene();
-        Obstacle obstacles = new Obstacle();
-        Interrogation questions;
-
-        Vector2 yesCircle = new Vector2(200, 200);
-        float radius = 50;
-        Vector2 noCircle = new Vector2(1080, 200);
+        Interrogation scenes = new Interrogation();
 
         public void Setup()
         {
             Window.SetSize(1250, 750);
             Window.SetTitle("Interrogation");
             Window.TargetFPS = 60;
-
-            questions = new Interrogation(scenes);
         }
 
         public void Update()
         {
             Window.ClearBackground(Color.Black);
-            if (scenes.showCrimeScene == true)
+            
+            if (scenes.showMainMenu == true)
             {
-                Gameplay();
-                scenes.Crime();
-            }
-            else if (scenes.showLoadingScene == true)
-            {
-                scenes.Loading();
+                scenes.MainMenu();
             }
             else if (scenes.showIntroScene == true)
             {
-                questions.Intro();
+                scenes.Intro();
             }
             else if (scenes.showQuestion1 == true)
             {
-                questions.Question1();
+                scenes.Question1();
             }
-            else if (scenes.showInterrogationYes == true)
+            else if (scenes.showQuestion1Yes == true)
             {
-                questions.InterrogationYes();
+                scenes.Question1Yes();
             }
-            else if (scenes.showInterrogationNo == true)
+            else if (scenes.showQuestion1No == true)
             {
-                questions.InterrogationNo();
+                scenes.Question1No();
             }
-        }
-
-        public void Gameplay()
-        {
-            
         }
      
     }

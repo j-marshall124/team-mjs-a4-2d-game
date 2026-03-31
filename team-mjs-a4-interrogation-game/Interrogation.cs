@@ -7,14 +7,34 @@ namespace MohawkGame2D
 {
     public class Interrogation
     {
-        Scene scenes;
+        // BOOL CHECKS TO CHANGE SCENES //
+        public bool showMainMenu = true;
+        public bool showIntroScene = false;
+        public bool showQuestion1 = false;
+        public bool showQuestion1Yes = false;
+        public bool showQuestion1No = false;
+
+        // ASSETS VARIABLES //
+
+
+        // BUTTONS //
         Vector2 yesCircle = new Vector2(200, 200);
         float radius = 50;
         Vector2 noCircle = new Vector2(1080, 200);
 
-        public Interrogation(Scene scenes)
+        // MAIN MENU //
+        public void MainMenu()
         {
-            this.scenes = scenes;
+            Window.ClearBackground(Color.Black);
+            Text.Color = Color.White;
+            Text.Draw("Two weeks later...", 480, 360);
+            Text.Draw("Click to continue.", 480, 400);
+
+            if (Input.IsMouseButtonPressed(0))
+            {
+                showMainMenu = false;
+                showIntroScene = true;
+            }
         }
 
         // INTRO SCENE //
@@ -35,14 +55,17 @@ namespace MohawkGame2D
             // When mouse clicks, moves to the first question
             if (Input.IsMouseButtonPressed(0))
             {
-                scenes.showIntroScene = false;
-                scenes.showQuestion1  = true;
+                showIntroScene = false;
+                showQuestion1  = true;
             }
         }
         
         // QUESTION 1 //
         public void Question1()                    
         {
+            // Background
+
+
             // Text box
             Draw.FillColor = Color.DarkGray;
             Draw.Rectangle(200, 500, 880, 200);
@@ -61,11 +84,17 @@ namespace MohawkGame2D
             if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
                 && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
             {
+                // Button highlight
+                Draw.FillColor = Color.OffWhite;
+                Draw.Circle(yesCircle, radius);
+                Text.Color = Color.Black;
+                Text.Draw("Yes", 175, 185);
+
                 bool isInsideOption1 = true;
                 if (isInsideOption1 && Input.IsMouseButtonPressed(0))
                 {
-                    scenes.showQuestion1 = false;
-                    scenes.showInterrogationYes = true;
+                    showQuestion1 = false;
+                    showQuestion1Yes = true;
                 }
             }
 
@@ -73,17 +102,26 @@ namespace MohawkGame2D
             if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
                 && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
             {
+                // Button highlight
+                Draw.FillColor = Color.OffWhite;
+                Draw.Circle(noCircle, radius);
+                Text.Color = Color.Black;
+                Text.Draw("No", 1065, 185);
+
                 bool isInsideOption2 = true;
                 if (isInsideOption2 && Input.IsMouseButtonPressed(0))
                 {
-                    scenes.showQuestion1 = false;
-                    scenes.showInterrogationNo = true;
+                    showQuestion1 = false;
+                    showQuestion1No = true;
                 }
             }
         }
 
-        public void InterrogationYes()
+        public void Question1Yes()
         {
+            // Background
+
+
             // Text box
             Draw.FillColor = Color.DarkGray;
             Draw.Rectangle(200, 500, 880, 200);
@@ -99,8 +137,11 @@ namespace MohawkGame2D
             Text.Draw("No", 1065, 185);
         }
 
-        public void InterrogationNo()
+        public void Question1No()
         {
+            // Background
+
+
             // Text box
             Draw.FillColor = Color.DarkGray;
             Draw.Rectangle(200, 500, 880, 200);

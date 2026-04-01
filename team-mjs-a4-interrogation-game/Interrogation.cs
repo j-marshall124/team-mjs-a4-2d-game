@@ -13,6 +13,10 @@ namespace MohawkGame2D
         public bool showQuestion1 = false;
         public bool showQuestion1Yes = false;
         public bool showQuestion1No = false;
+        public bool showQuestion2 = false;
+        public bool showQuestion2Front = false;
+        public bool showQuestion2Back = false;
+        public bool showQuestion2No = false;
 
         // ASSETS VARIABLES //
 
@@ -156,5 +160,179 @@ namespace MohawkGame2D
             Draw.Circle(noCircle, radius);
             Text.Draw("No", 1065, 185);
         }
+
+        // QUESTION 2 //
+        public void Question2()
+        {
+            // Background
+
+
+            // Text box
+            Draw.FillColor = Color.DarkGray;
+            Draw.Rectangle(200, 500, 880, 200);
+
+            // Question
+            Text.Color = Color.White;
+            Text.Draw("Did you use the front door or back door to break in?", 220, 520);
+
+            // Options
+            Draw.Circle(yesCircle, radius);
+            Text.Draw("Front door", 175, 185);
+            Draw.Circle(noCircle, radius);
+            Text.Draw("Back door", 1065, 185);
+            Text.Draw("I did not commit the crime.", 1065, 185);
+
+            // Checks if mouse is inside the left option button
+            if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
+                && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
+            {
+                // Button highlight
+                Draw.FillColor = Color.OffWhite;
+                Draw.Circle(yesCircle, radius);
+                Text.Color = Color.Black;
+                Text.Draw("Yes", 175, 185);
+
+                bool isInsideOption1 = true;
+                if (isInsideOption1 && Input.IsMouseButtonPressed(0))
+                {
+                    showQuestion1 = false;
+                    showQuestion1Yes = true;
+                }
+            }
+
+            // Checks if mouse is inside the right option button
+            if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
+                && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
+            {
+                // Button highlight
+                Draw.FillColor = Color.OffWhite;
+                Draw.Circle(noCircle, radius);
+                Text.Color = Color.Black;
+                Text.Draw("No", 1065, 185);
+
+                bool isInsideOption2 = true;
+                if (isInsideOption2 && Input.IsMouseButtonPressed(0))
+                {
+                    showQuestion1 = false;
+                    showQuestion1No = true;
+                }
+            }
+        
+        }
+    }   
+        //question 3
+         public void Question3()
+        {
+            // Background
+
+
+            // Text box
+            Draw.FillColor = Color.DarkGray;
+            Draw.Rectangle(200, 500, 880, 200);
+
+            // Question
+            Text.Color = Color.White;
+            Text.Draw("Did you check to see if anyone was home?", 220, 520);
+
+            // Options
+            Draw.Circle(yesCircle, radius);
+            Text.Draw("I made sure no one was home", 175, 185);
+            Draw.Circle(noCircle, radius);
+            Text.Draw("Hey man Im telling I didn't do anything", 1065, 185);
+            
+
+            // Checks if mouse is inside the left option button
+            if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
+                && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
+            {
+                // Button highlight
+                Draw.FillColor = Color.OffWhite;
+                Draw.Circle(yesCircle, radius);
+                Text.Color = Color.Black;
+                Text.Draw("Yes", 175, 185);
+
+                bool isInsideOption1 = true;
+                if (isInsideOption1 && Input.IsMouseButtonPressed(0))
+                {
+                    showQuestion1 = false;
+                    showQuestion1Yes = true;
+                }
+            }
+
+            // Checks if mouse is inside the right option button
+            if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
+                && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
+            {
+                // Button highlight
+                Draw.FillColor = Color.OffWhite;
+                Draw.Circle(noCircle, radius);
+                Text.Color = Color.Black;
+                Text.Draw("No", 1065, 185);
+
+                bool isInsideOption2 = true;
+                if (isInsideOption2 && Input.IsMouseButtonPressed(0))
+                {
+                    showQuestion1 = false;
+                    showQuestion1No = true;
+                }
+            }
+        }
+        // QUESTION 4 //
+        public void Question4()
+        {
+            // Background
+
+
+            // Text box
+            Draw.FillColor = Color.DarkGray;
+            Draw.Rectangle(200, 500, 880, 200);
+
+            // Question
+            Text.Color = Color.White;
+            Text.Draw("Did you panic when you heard the police sirens?", 220, 520);
+
+            // Options
+            Draw.Circle(yesCircle, radius);
+            Text.Draw("No I never panicked", 175, 185);
+            Draw.Circle(noCircle, radius);
+            Text.Draw("No because I was never there", 1065, 185);
+            Text.Draw("No because the cops were never called", 1065, 185);
+
+
+            // Checks if mouse is inside the left option button
+            if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
+                && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
+            {
+                // Button highlight
+                Draw.FillColor = Color.OffWhite;
+                Draw.Circle(yesCircle, radius);
+                Text.Color = Color.Black;
+                Text.Draw("Yes", 175, 185);
+
+                bool isInsideOption1 = true;
+                if (isInsideOption1 && Input.IsMouseButtonPressed(0))
+                {
+                    showQuestion1 = false;
+                    showQuestion1Yes = true;
+                }
+            }
+
+            // Checks if mouse is inside the right option button
+            if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
+                && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
+            {
+                // Button highlight
+                Draw.FillColor = Color.OffWhite;
+                Draw.Circle(noCircle, radius);
+                Text.Color = Color.Black;
+                Text.Draw("No", 1065, 185);
+
+                bool isInsideOption2 = true;
+                if (isInsideOption2 && Input.IsMouseButtonPressed(0))
+                {
+                    showQuestion1 = false;
+                    showQuestion1No = true;
+                }
+            }
+        }
     }
-}

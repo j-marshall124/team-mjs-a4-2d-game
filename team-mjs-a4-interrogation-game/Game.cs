@@ -21,7 +21,11 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.Black);
-            
+            SceneChanger();
+        }
+
+        public void SceneChanger()
+        {
             if (scenes.showMainMenu == true)
             {
                 scenes.MainMenu();
@@ -42,8 +46,6 @@ namespace MohawkGame2D
             {
                 scenes.Question1No();
             }
-        }
-     
+        }     
     }
-
 }

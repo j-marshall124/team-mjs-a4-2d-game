@@ -17,6 +17,11 @@ namespace MohawkGame2D
         public bool showQuestion2Front = false;
         public bool showQuestion2Back = false;
         public bool showQuestion2No = false;
+        public bool showQuestion3No = false;
+        public bool showQuestion3yes = false;
+        public bool showQuestion4NoNeverPanicked = false;
+        public bool showQuestion4NoNeverThere = false;
+        public bool showQuestion4NoNeverCalled = false;
 
         // ASSETS VARIABLES //
 

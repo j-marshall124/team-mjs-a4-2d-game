@@ -38,13 +38,13 @@ namespace MohawkGame2D
             {
                 scenes.Question1();
             }
-            else if (scenes.showQuestion1Yes == true)
+            else if (scenes.showQuestion1Option1 == true)
             {
-                scenes.Question1Yes();
+                scenes.Question1Option1();
             }
-            else if (scenes.showQuestion1No == true)
+            else if (scenes.showQuestion1Option2 == true)
             {
-                scenes.Question1No();
+                scenes.Question1Option2();
             }
             else if (scenes.showQuestion2 == true)
             {

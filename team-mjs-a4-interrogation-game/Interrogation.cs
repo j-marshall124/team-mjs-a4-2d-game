@@ -11,8 +11,8 @@ namespace MohawkGame2D
         public bool showMainMenu = true;
         public bool showIntroScene = false;
         public bool showQuestion1 = false;
-        public bool showQuestion1Yes = false;
-        public bool showQuestion1No = false;
+        public bool showQuestion1Option1 = false;
+        public bool showQuestion1Option2 = false;
         public bool showQuestion2 = false;
         public bool showQuestion2Front = false;
         public bool showQuestion2Back = false;
@@ -22,6 +22,9 @@ namespace MohawkGame2D
         public bool showQuestion4NoNeverPanicked = false;
         public bool showQuestion4NoNeverThere = false;
         public bool showQuestion4NoNeverCalled = false;
+
+        public bool guilty = false;
+        public bool notGuilty = false;
 
         // ASSETS VARIABLES //
         public Color bg = new Color(50, 50, 48);
@@ -125,7 +128,7 @@ namespace MohawkGame2D
                 {
                     Audio.Play(click);
                     showQuestion1 = false;
-                    showQuestion1Yes = true;
+                    showQuestion1Option1 = true;
                 }
             }
 
@@ -150,50 +153,56 @@ namespace MohawkGame2D
                 {
                     Audio.Play(click);
                     showQuestion1 = false;
-                    showQuestion1No = true;
+                    showQuestion1Option2 = true;
                 }
             }
         }
 
         // QUESTION 1 ANSWERS //
-        public void Question1Yes()
+        public void Question1Option1()
         {
             // Background
 
 
             // Text box
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
+            Graphics.Draw(textBox, 10, 445);
 
-            // Questions
+            // Question
             Text.Color = Color.White;
-            Text.Draw("I can't believe this. GAME OVER.", 220, 520);
+            guilty = true;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
 
-            // Options
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion1Option1 = false;
+                showQuestion2 = true;
+            }
         }
 
-        public void Question1No()
+        public void Question1Option2()
         {
             // Background
 
 
             // Text box
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
+            Graphics.Draw(textBox, 10, 445);
 
-            // Questions
+            // Question
             Text.Color = Color.White;
-            Text.Draw("I knew it wasn't you. YOU WIN.", 220, 520);
+            notGuilty = true;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
 
-            // Options
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion1Option2 = false;
+                showQuestion2 = true;
+            }
         }
 
         // QUESTION 2 //
@@ -231,7 +240,7 @@ namespace MohawkGame2D
                 if (isInsideOption1 && Input.IsMouseButtonPressed(0))
                 {
                     showQuestion1 = false;
-                    showQuestion1Yes = true;
+                    showQuestion1Option1 = true;
                 }
             }
 
@@ -249,7 +258,7 @@ namespace MohawkGame2D
                 if (isInsideOption2 && Input.IsMouseButtonPressed(0))
                 {
                     showQuestion1 = false;
-                    showQuestion1No = true;
+                    showQuestion1Option2 = true;
                 }
             }
         }
@@ -350,7 +359,7 @@ namespace MohawkGame2D
                 if (isInsideOption1 && Input.IsMouseButtonPressed(0))
                 {
                     showQuestion1 = false;
-                    showQuestion1Yes = true;
+                    showQuestion1Option1 = true;
                 }
             }
 
@@ -368,7 +377,7 @@ namespace MohawkGame2D
                 if (isInsideOption2 && Input.IsMouseButtonPressed(0))
                 {
                     showQuestion1 = false;
-                    showQuestion1No = true;
+                    showQuestion1Option2 = true;
                 }
             }
         }
@@ -408,7 +417,7 @@ namespace MohawkGame2D
                 if (isInsideOption1 && Input.IsMouseButtonPressed(0))
                 {
                     showQuestion1 = false;
-                    showQuestion1Yes = true;
+                    showQuestion1Option1 = true;
                 }
             }
 
@@ -426,7 +435,7 @@ namespace MohawkGame2D
                 if (isInsideOption2 && Input.IsMouseButtonPressed(0))
                 {
                     showQuestion1 = false;
-                    showQuestion1No = true;
+                    showQuestion1Option2 = true;
                 }
             }
         }

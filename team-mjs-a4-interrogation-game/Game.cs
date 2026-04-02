@@ -20,7 +20,7 @@ namespace MohawkGame2D
 
         public void Update()
         {
-            Window.ClearBackground(Color.Black);
+            Window.ClearBackground(scenes.bg);
             SceneChanger();
         }
 
@@ -45,6 +45,22 @@ namespace MohawkGame2D
             else if (scenes.showQuestion1No == true)
             {
                 scenes.Question1No();
+            }
+            else if (scenes.showQuestion2 == true)
+            {
+                scenes.Question2();
+            }
+            else if (scenes.showQuestion2Front == true)
+            {
+                scenes.Question2Front();
+            }
+            else if (scenes.showQuestion2Back == true)
+            {
+                scenes.Question2Back();
+            }
+            else if (scenes.showQuestion2No == true)
+            {
+                scenes.Question2No();
             }
         }     
     }

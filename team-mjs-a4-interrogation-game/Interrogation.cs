@@ -425,7 +425,7 @@ namespace MohawkGame2D
                 // Button highlight
                 Graphics.Draw(buttonHover, buttonPositions[1]);
                 Text.Color = Color.Black;
-                Text.Draw("Option 2", 1060, 480);
+                Text.Draw("Option 2", 1060, 580);
 
                 // Text box
                 Graphics.Draw(textBox, 10, 445);

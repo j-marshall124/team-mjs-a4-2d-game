@@ -50,17 +50,53 @@ namespace MohawkGame2D
             {
                 scenes.Question2();
             }
-            else if (scenes.showQuestion2Front == true)
+            else if (scenes.showQuestion2Option1 == true)
             {
-                scenes.Question2Front();
+                scenes.Question2Option1();
             }
-            else if (scenes.showQuestion2Back == true)
+            else if (scenes.showQuestion2Option2 == true)
             {
-                scenes.Question2Back();
+                scenes.Question2Option2();
             }
-            else if (scenes.showQuestion2No == true)
+            else if (scenes.showQuestion2Option3 == true)
             {
-                scenes.Question2No();
+                scenes.Question2Option3();
+            }
+            else if (scenes.showQuestion3 == true)
+            {
+                scenes.Question3();
+            }
+            else if (scenes.showQuestion3Option1 == true)
+            {
+                scenes.Question3Option1();
+            }
+            else if (scenes.showQuestion3Option2 == true)
+            {
+                scenes.Question3Option2();
+            }
+            else if (scenes.showQuestion4 == true)
+            {
+                scenes.Question4();
+            }
+            else if (scenes.showQuestion4Option1 == true)
+            {
+                scenes.Question4Option1();
+            }
+            else if (scenes.showQuestion4Option2 == true)
+            {
+                scenes.Question4Option2();
+            }
+            else if (scenes.showQuestion4Option3 == true)
+            {
+                scenes.Question4Option3();
+            }
+            else if (scenes.showGuiltyEnding == true)
+            {
+                scenes.GuiltyEnding();
+            }
+            else if (scenes.showNotGuiltyEnding == true)
+            {
+                scenes.NotGuiltyEnding();
             }
         }     
     }

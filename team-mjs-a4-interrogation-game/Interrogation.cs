@@ -14,14 +14,18 @@ namespace MohawkGame2D
         public bool showQuestion1Option1 = false;
         public bool showQuestion1Option2 = false;
         public bool showQuestion2 = false;
-        public bool showQuestion2Front = false;
-        public bool showQuestion2Back = false;
-        public bool showQuestion2No = false;
-        public bool showQuestion3No = false;
-        public bool showQuestion3yes = false;
-        public bool showQuestion4NoNeverPanicked = false;
-        public bool showQuestion4NoNeverThere = false;
-        public bool showQuestion4NoNeverCalled = false;
+        public bool showQuestion2Option1 = false;
+        public bool showQuestion2Option2 = false;
+        public bool showQuestion2Option3 = false;
+        public bool showQuestion3 = false;
+        public bool showQuestion3Option1 = false;
+        public bool showQuestion3Option2 = false;
+        public bool showQuestion4 = false;
+        public bool showQuestion4Option1 = false;
+        public bool showQuestion4Option2 = false;
+        public bool showQuestion4Option3 = false;
+        public bool showGuiltyEnding = false;
+        public bool showNotGuiltyEnding = false;
 
         public bool guilty = false;
         public bool notGuilty = false;
@@ -42,9 +46,6 @@ namespace MohawkGame2D
             new Vector2(1020, 545),
             new Vector2(1020, 645)
             ];
-        float radius = 50;
-        Vector2 noCircle = new Vector2(1080, 200);
-        Vector2 yesCircle = new Vector2(1080, 200);
 
         // MAIN MENU //
         public void MainMenu()
@@ -74,9 +75,9 @@ namespace MohawkGame2D
             Text.Color = Color.White;
             Text.Draw("Good afternoon, Jordan..\n" +
                 "I'm Monty, a detective with Hamilton Police.\n" +
-                "I've brought you in for questioning about a crime \n" +
-                "that was commited two weeks ago \n" +
-                "on the night of March 12, 2026", 35, 470);
+                "I've brought you in for questioning about a crime that \n" +
+                "was commited two weeks ago on the night of \n" +
+                "March 12, 2026.", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -212,116 +213,163 @@ namespace MohawkGame2D
 
 
             // Text box
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
+            Graphics.Draw(textBox, 10, 445);
 
             // Question
             Text.Color = Color.White;
-            Text.Draw("Did you use the front door or back door to break in?", 220, 520);
+            Text.Draw("Did you use the front door or back door to break in?", 35, 470);
 
             // Options
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Front door", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("Back door", 1065, 185);
-            Text.Draw("I did not commit the crime.", 1065, 185);
+            Graphics.Draw(button, buttonPositions[0]);
+            Text.Draw("Option 1", 1060, 480);
+            Graphics.Draw(button, buttonPositions[1]);
+            Text.Draw("Option 2", 1060, 580);
+            Graphics.Draw(button, buttonPositions[2]);
+            Text.Draw("Option 3", 1060, 680);
 
-            // Checks if mouse is inside the left option button
-            if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
-                && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
+            // Checks if mouse is inside the Option 1 button
+            if (Input.GetMouseX() >= buttonPositions[0].X && Input.GetMouseX() <= buttonPositions[0].X + 220
+                && Input.GetMouseY() >= buttonPositions[0].Y && Input.GetMouseY() <= buttonPositions[0].Y + 100)
             {
+                //Audio.Play(hover);
+
                 // Button highlight
-                Draw.FillColor = Color.OffWhite;
-                Draw.Circle(yesCircle, radius);
+                Graphics.Draw(buttonHover, buttonPositions[0]);
                 Text.Color = Color.Black;
-                Text.Draw("Yes", 175, 185);
+                Text.Draw("Option 1", 1060, 480);
+
+                // Text box
+                Graphics.Draw(textBox, 10, 445);
+                Text.Color = Color.White;
+                Text.Draw("I used the front door.", 35, 470);
 
                 bool isInsideOption1 = true;
                 if (isInsideOption1 && Input.IsMouseButtonPressed(0))
                 {
-                    showQuestion1 = false;
-                    showQuestion1Option1 = true;
+                    Audio.Play(click);
+                    showQuestion2 = false;
+                    showQuestion2Option1 = true;
                 }
             }
 
-            // Checks if mouse is inside the right option button
-            if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
-                && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
+            // Checks if mouse is inside the Option 2 button
+            if (Input.GetMouseX() >= buttonPositions[1].X && Input.GetMouseX() <= buttonPositions[1].X + 220
+                && Input.GetMouseY() >= buttonPositions[1].Y && Input.GetMouseY() <= buttonPositions[1].Y + 100)
             {
+                //Audio.Play(hover);
+
                 // Button highlight
-                Draw.FillColor = Color.OffWhite;
-                Draw.Circle(noCircle, radius);
+                Graphics.Draw(buttonHover, buttonPositions[1]);
                 Text.Color = Color.Black;
-                Text.Draw("No", 1065, 185);
+                Text.Draw("Option 2", 1060, 580);
+
+                // Text box
+                Graphics.Draw(textBox, 10, 445);
+                Text.Color = Color.White;
+                Text.Draw("The back door was unlocked, so that's where I snuck in.", 35, 470);
 
                 bool isInsideOption2 = true;
                 if (isInsideOption2 && Input.IsMouseButtonPressed(0))
                 {
-                    showQuestion1 = false;
-                    showQuestion1Option2 = true;
+                    Audio.Play(click);
+                    showQuestion2 = false;
+                    showQuestion2Option2 = true;
+                }
+            }
+            // Checks if mouse is inside the Option 3 button
+            if (Input.GetMouseX() >= buttonPositions[2].X && Input.GetMouseX() <= buttonPositions[2].X + 220
+                && Input.GetMouseY() >= buttonPositions[2].Y && Input.GetMouseY() <= buttonPositions[2].Y + 100)
+            {
+                //Audio.Play(hover);
+
+                // Button highlight
+                Graphics.Draw(buttonHover, buttonPositions[2]);
+                Text.Color = Color.Black;
+                Text.Draw("Option 3", 1060, 680);
+
+                // Text box
+                Graphics.Draw(textBox, 10, 445);
+                Text.Color = Color.White;
+                Text.Draw("I'm telling you, I didn't do it.", 35, 470);
+
+                bool isInsideOption3 = true;
+                if (isInsideOption3 && Input.IsMouseButtonPressed(0))
+                {
+                    Audio.Play(click);
+                    showQuestion2 = false;
+                    showQuestion2Option3 = true;
                 }
             }
         }
 
         // QUESTION 2 ANSWERS //
-        public void Question2Front()
+        public void Question2Option1()
         {
             // Background
 
 
             // Text box
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
+            Graphics.Draw(textBox, 10, 445);
 
-            // Questions
+            // Question
             Text.Color = Color.White;
-            Text.Draw("I can't believe this. GAME OVER.", 220, 520);
+            notGuilty = true;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
 
-            // Options
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion2Option1 = false;
+                showQuestion3 = true;
+            }
         }
 
-        public void Question2Back()
+        public void Question2Option2()
         {
             // Background
 
 
             // Text box
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
+            Graphics.Draw(textBox, 10, 445);
 
-            // Questions
+            // Question
             Text.Color = Color.White;
-            Text.Draw("I knew it wasn't you. YOU WIN.", 220, 520);
+            notGuilty = true;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
 
-            // Options
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion2Option2 = false;
+                showQuestion3 = true;
+            }
         }
 
-        public void Question2No()
+        public void Question2Option3()
         {
             // Background
 
 
             // Text box
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
+            Graphics.Draw(textBox, 10, 445);
 
-            // Questions
+            // Question
             Text.Color = Color.White;
-            Text.Draw("I knew it wasn't you. YOU WIN.", 220, 520);
+            notGuilty = true;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
 
-            // Options
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("Yes", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No", 1065, 185);
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion2Option3 = false;
+                showQuestion3 = true;
+            }
         }
 
         // QUESTION 3 //
@@ -331,56 +379,116 @@ namespace MohawkGame2D
 
 
             // Text box
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
+            Graphics.Draw(textBox, 10, 445);
 
             // Question
             Text.Color = Color.White;
-            Text.Draw("Did you check to see if anyone was home?", 220, 520);
+            Text.Draw("Did you check to see if anyone was home?", 35, 470);
 
             // Options
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("I made sure no one was home", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("Hey man Im telling I didn't do anything", 1065, 185);
+            Graphics.Draw(button, buttonPositions[0]);
+            Text.Draw("Option 1", 1060, 480);
+            Graphics.Draw(button, buttonPositions[1]);
+            Text.Draw("Option 2", 1060, 580);
 
-
-            // Checks if mouse is inside the left option button
-            if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
-                && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
+            // Checks if mouse is inside the Option 1 button
+            if (Input.GetMouseX() >= buttonPositions[0].X && Input.GetMouseX() <= buttonPositions[0].X + 220
+                && Input.GetMouseY() >= buttonPositions[0].Y && Input.GetMouseY() <= buttonPositions[0].Y + 100)
             {
+                //Audio.Play(hover);
+
                 // Button highlight
-                Draw.FillColor = Color.OffWhite;
-                Draw.Circle(yesCircle, radius);
+                Graphics.Draw(buttonHover, buttonPositions[0]);
                 Text.Color = Color.Black;
-                Text.Draw("Yes", 175, 185);
+                Text.Draw("Option 1", 1060, 480);
+
+                // Text box
+                Graphics.Draw(textBox, 10, 445);
+                Text.Color = Color.White;
+                Text.Draw("I made sure no one was home.", 35, 470);
 
                 bool isInsideOption1 = true;
                 if (isInsideOption1 && Input.IsMouseButtonPressed(0))
                 {
-                    showQuestion1 = false;
-                    showQuestion1Option1 = true;
+                    Audio.Play(click);
+                    showQuestion3 = false;
+                    showQuestion3Option1 = true;
                 }
             }
 
-            // Checks if mouse is inside the right option button
-            if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
-                && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
+            // Checks if mouse is inside the Option 2 button
+            if (Input.GetMouseX() >= buttonPositions[1].X && Input.GetMouseX() <= buttonPositions[1].X + 220
+                && Input.GetMouseY() >= buttonPositions[1].Y && Input.GetMouseY() <= buttonPositions[1].Y + 100)
             {
-                // Button highlight
-                Draw.FillColor = Color.OffWhite;
-                Draw.Circle(noCircle, radius);
-                Text.Color = Color.Black;
-                Text.Draw("No", 1065, 185);
+                //Audio.Play(hover);
 
-                bool isInsideOption2 = true;
-                if (isInsideOption2 && Input.IsMouseButtonPressed(0))
+                // Button highlight
+                Graphics.Draw(buttonHover, buttonPositions[1]);
+                Text.Color = Color.Black;
+                Text.Draw("Option 2", 1060, 480);
+
+                // Text box
+                Graphics.Draw(textBox, 10, 445);
+                Text.Color = Color.White;
+                Text.Draw("Hey man, I'm telling you I didn't do anything.", 35, 470);
+
+                bool isInsideOption1 = true;
+                if (isInsideOption1 && Input.IsMouseButtonPressed(0))
                 {
-                    showQuestion1 = false;
-                    showQuestion1Option2 = true;
+                    Audio.Play(click);
+                    showQuestion3 = false;
+                    showQuestion3Option2 = true;
                 }
             }
         }
+
+        // QUESTION 3 ANSWERS //
+        public void Question3Option1()
+        {
+            // Background
+
+
+            // Text box
+            Graphics.Draw(textBox, 10, 445);
+
+            // Question
+            Text.Color = Color.White;
+            notGuilty = true;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
+
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion3Option1 = false;
+                showQuestion4 = true;
+            }
+        }
+
+        public void Question3Option2()
+        {
+            // Background
+
+
+            // Text box
+            Graphics.Draw(textBox, 10, 445);
+
+            // Question
+            Text.Color = Color.White;
+            notGuilty = true;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
+
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion3Option2 = false;
+                showQuestion4 = true;
+            }
+        }
+
         // QUESTION 4 //
         public void Question4()
         {
@@ -388,56 +496,215 @@ namespace MohawkGame2D
 
 
             // Text box
-            Draw.FillColor = Color.DarkGray;
-            Draw.Rectangle(200, 500, 880, 200);
+            Graphics.Draw(textBox, 10, 445);
 
             // Question
             Text.Color = Color.White;
-            Text.Draw("Did you panic when you heard the police sirens?", 220, 520);
+            Text.Draw("Did you panic when you heard the police sirens?", 35, 470);
 
             // Options
-            Draw.Circle(yesCircle, radius);
-            Text.Draw("No I never panicked", 175, 185);
-            Draw.Circle(noCircle, radius);
-            Text.Draw("No because I was never there", 1065, 185);
-            Text.Draw("No because the cops were never called", 1065, 185);
+            Graphics.Draw(button, buttonPositions[0]);
+            Text.Draw("Option 1", 1060, 480);
+            Graphics.Draw(button, buttonPositions[1]);
+            Text.Draw("Option 2", 1060, 580);
+            Graphics.Draw(button, buttonPositions[2]);
+            Text.Draw("Option 3", 1060, 680);
 
-
-            // Checks if mouse is inside the left option button
-            if (Input.GetMouseX() >= yesCircle.X - radius && Input.GetMouseX() <= yesCircle.X + radius
-                && Input.GetMouseY() >= yesCircle.Y - radius && Input.GetMouseY() <= yesCircle.Y + radius)
+            // Checks if mouse is inside the Option 1 button
+            if (Input.GetMouseX() >= buttonPositions[0].X && Input.GetMouseX() <= buttonPositions[0].X + 220
+                && Input.GetMouseY() >= buttonPositions[0].Y && Input.GetMouseY() <= buttonPositions[0].Y + 100)
             {
+                //Audio.Play(hover);
+
                 // Button highlight
-                Draw.FillColor = Color.OffWhite;
-                Draw.Circle(yesCircle, radius);
+                Graphics.Draw(buttonHover, buttonPositions[0]);
                 Text.Color = Color.Black;
-                Text.Draw("Yes", 175, 185);
+                Text.Draw("Option 1", 1060, 480);
+
+                // Text box
+                Graphics.Draw(textBox, 10, 445);
+                Text.Color = Color.White;
+                Text.Draw("No I never panicked.", 35, 470);
 
                 bool isInsideOption1 = true;
                 if (isInsideOption1 && Input.IsMouseButtonPressed(0))
                 {
-                    showQuestion1 = false;
-                    showQuestion1Option1 = true;
+                    Audio.Play(click);
+                    showQuestion4 = false;
+                    showQuestion4Option1 = true;
                 }
             }
 
-            // Checks if mouse is inside the right option button
-            if (Input.GetMouseX() >= noCircle.X - radius && Input.GetMouseX() <= noCircle.X + radius
-                && Input.GetMouseY() >= noCircle.Y - radius && Input.GetMouseY() <= noCircle.Y + radius)
+            // Checks if mouse is inside the Option 2 button
+            if (Input.GetMouseX() >= buttonPositions[1].X && Input.GetMouseX() <= buttonPositions[1].X + 220
+                && Input.GetMouseY() >= buttonPositions[1].Y && Input.GetMouseY() <= buttonPositions[1].Y + 100)
             {
+                //Audio.Play(hover);
+
                 // Button highlight
-                Draw.FillColor = Color.OffWhite;
-                Draw.Circle(noCircle, radius);
+                Graphics.Draw(buttonHover, buttonPositions[1]);
                 Text.Color = Color.Black;
-                Text.Draw("No", 1065, 185);
+                Text.Draw("Option 2", 1060, 580);
+
+                // Text box
+                Graphics.Draw(textBox, 10, 445);
+                Text.Color = Color.White;
+                Text.Draw("No, because I was never there.", 35, 470);
 
                 bool isInsideOption2 = true;
                 if (isInsideOption2 && Input.IsMouseButtonPressed(0))
                 {
-                    showQuestion1 = false;
-                    showQuestion1Option2 = true;
+                    Audio.Play(click);
+                    showQuestion4 = false;
+                    showQuestion4Option2 = true;
                 }
             }
+            // Checks if mouse is inside the Option 3 button
+            if (Input.GetMouseX() >= buttonPositions[2].X && Input.GetMouseX() <= buttonPositions[2].X + 220
+                && Input.GetMouseY() >= buttonPositions[2].Y && Input.GetMouseY() <= buttonPositions[2].Y + 100)
+            {
+                //Audio.Play(hover);
+
+                // Button highlight
+                Graphics.Draw(buttonHover, buttonPositions[2]);
+                Text.Color = Color.Black;
+                Text.Draw("Option 3", 1060, 680);
+
+                // Text box
+                Graphics.Draw(textBox, 10, 445);
+                Text.Color = Color.White;
+                Text.Draw("No, because the cops were never called.", 35, 470);
+
+                bool isInsideOption3 = true;
+                if (isInsideOption3 && Input.IsMouseButtonPressed(0))
+                {
+                    Audio.Play(click);
+                    showQuestion4 = false;
+                    showQuestion4Option3 = true;
+                }
+            }
+        }
+
+        // QUESTION 4 ANSWERS //
+        public void Question4Option1()
+        {
+            // Background
+
+
+            // Text box
+            Graphics.Draw(textBox, 10, 445);
+
+            // Question
+            Text.Color = Color.White;
+            notGuilty = false;
+            guilty = true;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
+
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion4Option1 = false;
+                if (guilty == true) // Checks which ending to play
+                {
+                    showGuiltyEnding = true;
+                }
+                else if (notGuilty == true)
+                {
+                    showNotGuiltyEnding = true;
+                }
+            }
+        }
+
+        public void Question4Option2()
+        {
+            // Background
+
+
+            // Text box
+            Graphics.Draw(textBox, 10, 445);
+
+            // Question
+            Text.Color = Color.White;
+            notGuilty = true;
+            guilty = false;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
+
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion4Option2 = false;
+                if (guilty == true) // Checks which ending to play
+                {
+                    showGuiltyEnding = true;
+                }
+                else if (notGuilty == true)
+                {
+                    showNotGuiltyEnding = true;
+                }
+            }
+        }
+
+        public void Question4Option3()
+        {
+            // Background
+
+
+            // Text box
+            Graphics.Draw(textBox, 10, 445);
+
+            // Question
+            Text.Color = Color.White;
+            notGuilty = false;
+            guilty = true;
+            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
+
+            // When mouse clicks, moves to the first question
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showQuestion4Option3 = false;
+                if (guilty == true) // Checks which ending to play
+                {
+                    showGuiltyEnding = true;
+                }
+                else if (notGuilty == true)
+                {
+                    showNotGuiltyEnding = true;
+                }
+            }
+        }
+
+        public void GuiltyEnding()
+        {
+            // Background
+
+
+            // Text box
+            Graphics.Draw(textBox, 10, 445);
+
+            // Text
+            Text.Color = Color.White;
+            Text.Draw("GUILTY", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
+        }
+
+        public void NotGuiltyEnding()
+        {
+            // Background
+
+
+            // Text box
+            Graphics.Draw(textBox, 10, 445);
+
+            // Text
+            Text.Color = Color.White;
+            Text.Draw("NOT GUILTY", 35, 470);
+            Text.Draw("Click to continue...", 640, 690);
         }
     }
 }

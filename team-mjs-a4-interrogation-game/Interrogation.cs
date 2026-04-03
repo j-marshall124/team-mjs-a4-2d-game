@@ -51,8 +51,9 @@ namespace MohawkGame2D
         public void MainMenu()
         {            
             Text.Color = Color.White;
-            Text.Draw("Two weeks later...", 480, 360);
-            Text.Draw("Click to continue.", 480, 400);
+            Text.Draw("A crime was commited a few weeks ago...\n" +
+                "You are guilty but try to avoid being caught!!!", 275, 320);
+            Text.Draw("Click to continue.", 480, 450);
 
             if (Input.IsMouseButtonPressed(0))
             {
@@ -172,7 +173,7 @@ namespace MohawkGame2D
             Text.Color = Color.White;
             guilty = true;
             Text.Draw("Interesting...", 35, 470);
-            Text.Draw("Click to continue...", 640, 690);
+            Text.Draw("Click to continue ...", 640, 690);
 
             // When mouse clicks, moves to the first question
             if (Input.IsMouseButtonPressed(0))

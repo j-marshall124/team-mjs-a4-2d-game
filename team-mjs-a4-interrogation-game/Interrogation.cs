@@ -707,7 +707,7 @@ namespace MohawkGame2D
             // Text
             Text.Color = Color.White;
             Text.Draw("GUILTY", 35, 470);
-            Text.Draw("Click to play again...", 630, 690);
+            Text.Draw("Click to play again...", 610, 690);
             if (Input.IsMouseButtonPressed(0))
             {
                 Audio.Play(click);
@@ -727,7 +727,7 @@ namespace MohawkGame2D
             // Text
             Text.Color = Color.White;
             Text.Draw("NOT GUILTY", 35, 470);
-            Text.Draw("Click to play again...", 630, 690);
+            Text.Draw("Click to play again...", 610, 690);
             if (Input.IsMouseButtonPressed(0))
             {
                 Audio.Play(click);

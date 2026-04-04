@@ -67,8 +67,9 @@ namespace MohawkGame2D
         public void Backstory()
         {            
             Text.Color = Color.White;
-            Text.Draw("Two weeks later...", 480, 360);
-            Text.Draw("Click to continue.", 480, 400);
+            Text.Draw("A crime was commited a few weeks ago...\n" +
+                "You are guilty but try to avoid being caught!!!", 275, 320);
+            Text.Draw("Click to continue.", 480, 450);
 
             if (Input.IsMouseButtonPressed(0))
             {

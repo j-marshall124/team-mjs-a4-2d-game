@@ -11,16 +11,19 @@ namespace MohawkGame2D
         // Place your variables here:
         Interrogation scenes = new Interrogation();
 
+        Music bgm = Audio.LoadMusic("../../../../assets/audio/Cool Vibes.mp3");
+
         public void Setup()
         {
             Window.SetSize(1250, 750);
             Window.SetTitle("Interrogation");
             Window.TargetFPS = 60;
+            Audio.Play(bgm);
         }
 
         public void Update()
         {
-            Window.ClearBackground(scenes.bg);
+            Window.ClearBackground(scenes.bg);            
             SceneChanger();
         }
 

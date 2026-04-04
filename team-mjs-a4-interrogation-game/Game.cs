@@ -33,6 +33,10 @@ namespace MohawkGame2D
             {
                 scenes.MainMenu();
             }
+            else if (scenes.showBackstory == true)
+            {
+                scenes.Backstory();
+            }
             else if (scenes.showIntroScene == true)
             {
                 scenes.Intro();

@@ -9,6 +9,7 @@ namespace MohawkGame2D
     {
         // BOOL CHECKS TO CHANGE SCENES //
         public bool showMainMenu = true;
+        public bool showBackstory = true;
         public bool showIntroScene = false;
         public bool showQuestion1 = false;
         public bool showQuestion1Option1 = false;
@@ -49,6 +50,21 @@ namespace MohawkGame2D
 
         // MAIN MENU //
         public void MainMenu()
+        {
+            Text.Color = Color.White;
+            Text.Draw("MAIN MENU (TEMP)", 275, 320);
+            Text.Draw("Click to Start.", 480, 450);
+
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showMainMenu = false;
+                showBackstory = true;
+            }
+        }
+
+        // BACKSTORY //
+        public void Backstory()
         {            
             Text.Color = Color.White;
             Text.Draw("Two weeks later...", 480, 360);
@@ -57,7 +73,7 @@ namespace MohawkGame2D
             if (Input.IsMouseButtonPressed(0))
             {
                 Audio.Play(click);
-                showMainMenu = false;
+                showBackstory = false;
                 showIntroScene = true;
             }
         }
@@ -690,7 +706,13 @@ namespace MohawkGame2D
             // Text
             Text.Color = Color.White;
             Text.Draw("GUILTY", 35, 470);
-            Text.Draw("Click to continue...", 640, 690);
+            Text.Draw("Click to play again...", 630, 690);
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                showGuiltyEnding = false;
+                showBackstory = true;
+            }
         }
 
         public void NotGuiltyEnding()
@@ -704,7 +726,14 @@ namespace MohawkGame2D
             // Text
             Text.Color = Color.White;
             Text.Draw("NOT GUILTY", 35, 470);
-            Text.Draw("Click to continue...", 640, 690);
+            Text.Draw("Click to play again...", 630, 690);
+            if (Input.IsMouseButtonPressed(0))
+            {
+                Audio.Play(click);
+                
+                showNotGuiltyEnding = false;
+                showBackstory = true;
+            }
         }
     }
 }

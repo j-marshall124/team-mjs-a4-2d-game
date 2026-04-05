@@ -9,59 +9,102 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-        Player player = new Player();
-        Scene scenes = new Scene();
-        Obstacle obstacles = new Obstacle();
-        Interrogation questions;
+        Interrogation scenes = new Interrogation();
 
-        Vector2 yesCircle = new Vector2(200, 200);
-        float radius = 50;
-        Vector2 noCircle = new Vector2(1080, 200);
+        Music bgm = Audio.LoadMusic("../../../../assets/audio/Cool Vibes.mp3");
 
         public void Setup()
         {
             Window.SetSize(1250, 750);
             Window.SetTitle("Interrogation");
             Window.TargetFPS = 60;
-
-            questions = new Interrogation(scenes);
+            Audio.Play(bgm);
         }
 
         public void Update()
         {
-            Window.ClearBackground(Color.Black);
-            if (scenes.showCrimeScene == true)
+            Window.ClearBackground(scenes.bg);            
+            SceneChanger();
+        }
+
+        public void SceneChanger()
+        {
+            if (scenes.showMainMenu == true)
             {
-                Gameplay();
-                scenes.Crime();
+                scenes.MainMenu();
             }
-            else if (scenes.showLoadingScene == true)
+            else if (scenes.showBackstory == true)
             {
-                scenes.Loading();
+                scenes.Backstory();
             }
             else if (scenes.showIntroScene == true)
             {
-                questions.Intro();
+                scenes.Intro();
             }
             else if (scenes.showQuestion1 == true)
             {
-                questions.Question1();
+                scenes.Question1();
             }
-            else if (scenes.showInterrogationYes == true)
+            else if (scenes.showQuestion1Option1 == true)
             {
-                questions.InterrogationYes();
+                scenes.Question1Option1();
             }
-            else if (scenes.showInterrogationNo == true)
+            else if (scenes.showQuestion1Option2 == true)
             {
-                questions.InterrogationNo();
+                scenes.Question1Option2();
             }
-        }
-
-        public void Gameplay()
-        {
-            
-        }
-     
+            else if (scenes.showQuestion2 == true)
+            {
+                scenes.Question2();
+            }
+            else if (scenes.showQuestion2Option1 == true)
+            {
+                scenes.Question2Option1();
+            }
+            else if (scenes.showQuestion2Option2 == true)
+            {
+                scenes.Question2Option2();
+            }
+            else if (scenes.showQuestion2Option3 == true)
+            {
+                scenes.Question2Option3();
+            }
+            else if (scenes.showQuestion3 == true)
+            {
+                scenes.Question3();
+            }
+            else if (scenes.showQuestion3Option1 == true)
+            {
+                scenes.Question3Option1();
+            }
+            else if (scenes.showQuestion3Option2 == true)
+            {
+                scenes.Question3Option2();
+            }
+            else if (scenes.showQuestion4 == true)
+            {
+                scenes.Question4();
+            }
+            else if (scenes.showQuestion4Option1 == true)
+            {
+                scenes.Question4Option1();
+            }
+            else if (scenes.showQuestion4Option2 == true)
+            {
+                scenes.Question4Option2();
+            }
+            else if (scenes.showQuestion4Option3 == true)
+            {
+                scenes.Question4Option3();
+            }
+            else if (scenes.showGuiltyEnding == true)
+            {
+                scenes.GuiltyEnding();
+            }
+            else if (scenes.showNotGuiltyEnding == true)
+            {
+                scenes.NotGuiltyEnding();
+            }
+        }     
     }
-
 }

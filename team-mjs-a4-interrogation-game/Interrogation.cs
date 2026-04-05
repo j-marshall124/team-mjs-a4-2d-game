@@ -111,7 +111,7 @@ namespace MohawkGame2D
         public void Question1()
         {
             // Background
-            
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -181,7 +181,7 @@ namespace MohawkGame2D
         public void Question1Option1()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -204,7 +204,7 @@ namespace MohawkGame2D
         public void Question1Option2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -228,7 +228,7 @@ namespace MohawkGame2D
         public void Question2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -324,7 +324,7 @@ namespace MohawkGame2D
         public void Question2Option1()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -347,7 +347,7 @@ namespace MohawkGame2D
         public void Question2Option2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -370,7 +370,7 @@ namespace MohawkGame2D
         public void Question2Option3()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -394,7 +394,7 @@ namespace MohawkGame2D
         public void Question3()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -464,7 +464,7 @@ namespace MohawkGame2D
         public void Question3Option1()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -487,7 +487,7 @@ namespace MohawkGame2D
         public void Question3Option2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -511,7 +511,7 @@ namespace MohawkGame2D
         public void Question4()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -607,7 +607,7 @@ namespace MohawkGame2D
         public void Question4Option1()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -638,7 +638,7 @@ namespace MohawkGame2D
         public void Question4Option2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -669,7 +669,7 @@ namespace MohawkGame2D
         public void Question4Option3()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);

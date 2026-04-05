@@ -36,6 +36,7 @@ namespace MohawkGame2D
         Texture2D textBox = Graphics.LoadTexture("../../../../assets/graphics/TextBox.png");
         Texture2D button = Graphics.LoadTexture("../../../../assets/graphics/Button.png");
         Texture2D buttonHover = Graphics.LoadTexture("../../../../assets/graphics/ButtonHover.png");
+        Texture2D interrogationWithCopBG = Graphics.LoadTexture("../../../../assets/graphics/Interrogation graphic.png");
 
         Sound click = Audio.LoadSound("../../../../assets/audio/click.ogg");
         Sound hover = Audio.LoadSound("../../../../assets/audio/hover.ogg");        
@@ -83,7 +84,7 @@ namespace MohawkGame2D
         public void Intro()
         {
             // Background
-            
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -110,7 +111,7 @@ namespace MohawkGame2D
         public void Question1()
         {
             // Background
-            
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -180,7 +181,7 @@ namespace MohawkGame2D
         public void Question1Option1()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -203,7 +204,7 @@ namespace MohawkGame2D
         public void Question1Option2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -227,7 +228,7 @@ namespace MohawkGame2D
         public void Question2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -323,7 +324,7 @@ namespace MohawkGame2D
         public void Question2Option1()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -346,7 +347,7 @@ namespace MohawkGame2D
         public void Question2Option2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -369,7 +370,7 @@ namespace MohawkGame2D
         public void Question2Option3()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -393,7 +394,7 @@ namespace MohawkGame2D
         public void Question3()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -463,7 +464,7 @@ namespace MohawkGame2D
         public void Question3Option1()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -486,7 +487,7 @@ namespace MohawkGame2D
         public void Question3Option2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -510,7 +511,7 @@ namespace MohawkGame2D
         public void Question4()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -606,7 +607,7 @@ namespace MohawkGame2D
         public void Question4Option1()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -637,7 +638,7 @@ namespace MohawkGame2D
         public void Question4Option2()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
@@ -668,7 +669,7 @@ namespace MohawkGame2D
         public void Question4Option3()
         {
             // Background
-
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);

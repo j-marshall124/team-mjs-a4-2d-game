@@ -36,7 +36,7 @@ namespace MohawkGame2D
         Texture2D textBox = Graphics.LoadTexture("../../../../assets/graphics/TextBox.png");
         Texture2D button = Graphics.LoadTexture("../../../../assets/graphics/Button.png");
         Texture2D buttonHover = Graphics.LoadTexture("../../../../assets/graphics/ButtonHover.png");
-
+        Texture2D interrogationWithCopBG = Graphics.LoadTexture("../../../../assets/graphics/Interrogation graphic.png");
 
         Sound click = Audio.LoadSound("../../../../assets/audio/click.ogg");
         Sound hover = Audio.LoadSound("../../../../assets/audio/hover.ogg");        
@@ -84,7 +84,7 @@ namespace MohawkGame2D
         public void Intro()
         {
             // Background
-            
+            Graphics.Draw(interrogationWithCopBG, 0, 0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);

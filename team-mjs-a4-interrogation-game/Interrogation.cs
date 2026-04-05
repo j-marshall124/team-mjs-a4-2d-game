@@ -189,7 +189,7 @@ namespace MohawkGame2D
             // Question
             Text.Color = Color.White;
             guilty = true;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("You broke in? Hmm... Thanks for being honest.\nI have another question for you.", 35, 470);
             Text.Draw("Click to continue ...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -212,7 +212,7 @@ namespace MohawkGame2D
             // Question
             Text.Color = Color.White;
             notGuilty = true;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("You don't know what I'm talking about? Likely story...\nI have another question for you.", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -332,7 +332,7 @@ namespace MohawkGame2D
             // Question
             Text.Color = Color.White;
             notGuilty = true;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("The front door? That was bold of you.\nI have another question for you.", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -355,7 +355,7 @@ namespace MohawkGame2D
             // Question
             Text.Color = Color.White;
             notGuilty = true;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("You knew the back door was unlocked? Interesting...\nI have another question for you.", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -378,7 +378,7 @@ namespace MohawkGame2D
             // Question
             Text.Color = Color.White;
             notGuilty = true;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("You didn't do it, so you say.\nI have another question for you.", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -472,7 +472,7 @@ namespace MohawkGame2D
             // Question
             Text.Color = Color.White;
             notGuilty = true;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("You made sure no one was home? So you've been planning this...\nI have another question for you.", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -495,7 +495,7 @@ namespace MohawkGame2D
             // Question
             Text.Color = Color.White;
             notGuilty = true;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Yes, you keep saying you didn't do anything. We'll see about that.\nI have another question for you.", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -542,7 +542,7 @@ namespace MohawkGame2D
                 // Text box
                 Graphics.Draw(textBox, 10, 445);
                 Text.Color = Color.White;
-                Text.Draw("No I never panicked.", 35, 470);
+                Text.Draw("No, I never panicked.", 35, 470);
 
                 bool isInsideOption1 = true;
                 if (isInsideOption1 && Input.IsMouseButtonPressed(0))
@@ -616,7 +616,7 @@ namespace MohawkGame2D
             Text.Color = Color.White;
             notGuilty = false;
             guilty = true;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("You never panicked? Must've thought you could get away with this huh?", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -647,7 +647,7 @@ namespace MohawkGame2D
             Text.Color = Color.White;
             notGuilty = true;
             guilty = false;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("Hmm... maybe you are telling the truth...", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -678,7 +678,7 @@ namespace MohawkGame2D
             Text.Color = Color.White;
             notGuilty = false;
             guilty = true;
-            Text.Draw("Interesting...", 35, 470);
+            Text.Draw("So you knew the cops were never called huh?", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question

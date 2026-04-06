@@ -472,7 +472,7 @@ namespace MohawkGame2D
             // Question
             Text.Color = Color.White;
             notGuilty = true;
-            Text.Draw("You made sure no one was home? \n So you've been planning this...\nI have another question for you.", 35, 470);
+            Text.Draw("You made sure no one was home?\nSo you've been planning this...\nI have another question for you.", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -495,7 +495,7 @@ namespace MohawkGame2D
             // Question
             Text.Color = Color.White;
             notGuilty = true;
-            Text.Draw("Yes, you keep saying you didn't do anything. We'll see about that.\nI have another question for you.", 35, 470);
+            Text.Draw("Yes, you keep saying you didn't do anything.\nWe'll see about that.\nI have another question for you.", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -616,7 +616,7 @@ namespace MohawkGame2D
             Text.Color = Color.White;
             notGuilty = false;
             guilty = true;
-            Text.Draw("You never panicked? Must've thought you could get away \n with this huh?", 35, 470);
+            Text.Draw("You never panicked? Must've thought you could get away\nwith this huh?", 35, 470);
             Text.Draw("Click to continue...", 640, 690);
 
             // When mouse clicks, moves to the first question
@@ -707,7 +707,7 @@ namespace MohawkGame2D
 
             // Text
             Text.Color = Color.White;
-            Text.Draw("GUILTY!!!! YOURE GONNA ROT IN THAT CELL FOR \n THE REST OF YOUR LIFE!!!", 35, 470);
+            Text.Draw("GUILTY!!!!\nYOU'RE GONNA ROT IN THAT CELL FOR THE REST OF YOUR\nLIFE!!!", 35, 470);
             Text.Draw("Click to play again...", 610, 690);
             if (Input.IsMouseButtonPressed(0))
             {
@@ -727,7 +727,7 @@ namespace MohawkGame2D
 
             // Text
             Text.Color = Color.White;
-            Text.Draw("NOT GUILTY!! You are free scum. Dont let me see you \n here again.", 35, 470);
+            Text.Draw("NOT GUILTY!!\nYou are free scum. Don't let me see you here again.", 35, 470);
             Text.Draw("Click to play again...", 610, 690);
             if (Input.IsMouseButtonPressed(0))
             {

@@ -716,7 +716,7 @@ namespace MohawkGame2D
             {
                 Audio.Play(click);
                 showGuiltyEnding = false;
-                showBackstory = true;
+                showMainMenu = true;
             }
         }
 
@@ -737,7 +737,7 @@ namespace MohawkGame2D
                 Audio.Play(click);
                 
                 showNotGuiltyEnding = false;
-                showBackstory = true;
+                showMainMenu = true;
             }
         }
     }

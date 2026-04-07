@@ -38,6 +38,7 @@ namespace MohawkGame2D
         Texture2D buttonHover = Graphics.LoadTexture("../../../../assets/graphics/ButtonHover.png");
         Texture2D interrogationWithCopBG = Graphics.LoadTexture("../../../../assets/graphics/Interrogation graphic.png");
         Texture2D titleScreen = Graphics.LoadTexture("../../../../assets/graphics/TitleScreen.png");
+        Texture2D guiltyBG = Graphics.LoadTexture("../../../../assets/graphics/GuiltyBG.png");
 
 
         Sound click = Audio.LoadSound("../../../../assets/audio/click.ogg");
@@ -701,7 +702,7 @@ namespace MohawkGame2D
         public void GuiltyEnding()
         {
             // Background
-
+            Graphics.Draw(guiltyBG, 0,0);
 
             // Text box
             Graphics.Draw(textBox, 10, 445);
